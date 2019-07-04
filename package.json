@@ -1,0 +1,27 @@
+{
+  "name": "minitictactoe.io",
+  "version": "1.0.0",
+  "author": "Simon Raichl",
+  "license": "MIT",
+  "scripts": {
+    "update-babel": "babel-upgrade --write",
+    "start": "node app.js",
+    "start-dev": "nodemon app.js",
+    "build": "npx webpack",
+    "dev": "npx webpack --watch"
+  },
+  "dependencies": {
+    "express": "4.16.4",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "7.4.4",
+    "babel-loader": "^8.0.0",
+    "babel-upgrade": "1.0.1",
+    "compression": "1.7.4",
+    "regenerator-runtime": "0.13.2",
+    "socket.io": "2.2.0",
+    "webpack": "4.30.0",
+    "webpack-bundle-analyzer": "^3.3.2",
+    "webpack-cli": "3.2.3",
+    "minicomponent": "1.0.2"
+  }
+}

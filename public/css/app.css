@@ -1,0 +1,135 @@
+@font-face {
+    font-family: Signika;
+    src: url(/fonts/Signika-Light.ttf);
+}
+
+* {
+    font-family: Signika, Segoe UI, sans-serif;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: .5rem 0;
+}
+
+.mt0 {
+    margin-top: 0;
+}
+
+.mx1 {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.fwrap {
+    flex-wrap: wrap;
+}
+
+@keyframes color-change {
+
+    0% {
+        background: #980f0f;
+    }
+
+    33% {
+        background: #1f780a;
+    }
+
+    66% {
+        background: #0b0456;
+    }
+
+    100% {
+        background: #980f0f;
+    }
+}
+
+body {
+    word-break: break-word;
+    animation: color-change 80s linear infinite;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-size: 20px;
+}
+
+a {
+    color: #fff;
+}
+
+.menu-container {
+    background: rgba(255, 255, 255, .1);
+    padding: 1.5rem;
+}
+
+.ui-button {
+    background: rgba(255, 255, 255, .2);
+    padding: .5rem;
+    margin-top: 1rem;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+    font-size: 20px;
+    transition: .5s;
+}
+
+.ui-button:hover {
+    background: rgba(255, 255, 255, .3);
+}
+
+.ui-input {
+    width: 100%;
+    background: transparent;
+    padding: .5rem;
+    font-size: 18px;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, .6);
+    color: #fff;
+}
+
+.ui-input[readonly] {
+    background: rgba(200, 200, 200, .2);
+    color: #e4e3e3;
+}
+
+.field-area, .field-cell {
+    border: 1px solid rgba(255, 255, 255, .6);
+}
+
+.field-area {
+    display: flex;
+    overflow: auto;
+}
+
+.field-cell {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    font-size: 22px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, .15);
+}
+
+.field-cell:focus {
+    outline: 2px solid #fff;
+}
+
+.field-cell__mark {
+    transform: scaleX(1.4);
+}
+
+label {
+    font-weight: 500;
+}
+
+small {
+    font-size: 12px;
+}
+
+#linkCopied {
+    display: none;
+}
