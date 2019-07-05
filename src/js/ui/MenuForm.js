@@ -10,12 +10,10 @@ import socket from "../socket/io";
 
 export default class MenuForm extends MiniComponent {
     constructor (userData) {
-        const initialState = {
+        super(document.body, {
             createRoomForm: false,
             joinRoomForm: false
-        };
-        super(document.body, initialState);
-        this.initialState = initialState;
+        });
         this.setUserData(userData);
         this.joinGameFromLink();
     }

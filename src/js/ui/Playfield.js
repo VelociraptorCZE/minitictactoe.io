@@ -25,7 +25,10 @@ export default class Playfield extends MiniComponent {
             try {
                 const { winner, field } = data;
                 const fieldAsString = field.join("").replace(/,/g, "");
-                if (winner || fieldAsString.length === Math.pow(field.length, 2)) {
+                // second condition checks if the game is tied by transforming array into string
+                // then is needed to check its length with size * size
+                // because array fully filled with 'x' and 'o' equals to size * size.
+                if (winner || fieldAsString.length === field.length ** 2) {
                     setTimeout(() => {
                         alert(winner ? `Player ${winner} has won!` : "Game is tied!");
                         this.gameOver();
@@ -43,10 +46,9 @@ export default class Playfield extends MiniComponent {
     }
 
     gameOver () {
-        const { menuForm, state: { roomId } } = this;
+        const { state: { roomId } } = this;
         socket.emit("removeRoom", roomId);
-        history.replaceState({}, document.title, "/");
-        menuForm.setState(menuForm.initialState);
+        location.href = location.origin; // temporary fix
     }
 
     updateField () {
@@ -71,13 +73,12 @@ export default class Playfield extends MiniComponent {
             if (field[x][y] === "") {
                 field[x][y] = currentPlayer;
             }
+            this.updateField();
+            this.setState({ field: field });
         }
         catch {
             return false;
         }
-
-        this.updateField();
-        this.setState({ field: field });
     }
 
     pickCellOnEnter (e) {
